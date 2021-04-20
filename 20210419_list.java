@@ -19,7 +19,7 @@ public class list
 	Node head;
 	Node last;
 	
-	// ¸®½ºÆ® ³» ³ëµå ¹× °ª Ãß°¡
+	// ë¦¬ìŠ¤íŠ¸ ë‚´ ë…¸ë“œ ë° ê°’ ì¶”ê°€
 	public void add(int value)
 	{
 		if(head==null)
@@ -40,7 +40,7 @@ public class list
 		}
 	}
 	
-	// ¸®½ºÆ® ³» °ª Ãâ·Â
+	// ë¦¬ìŠ¤íŠ¸ ë‚´ ê°’ ì¶œë ¥
 	public void print()
 	{
 		Node temp = head;
@@ -52,7 +52,7 @@ public class list
 		}
 	}
 
-	// ¸®½ºÆ® º´ÇÕ ¹× Á¤·Ä
+	// ë¦¬ìŠ¤íŠ¸ ë³‘í•© ë° ì •ë ¬
 	public void mergeList(list b)
 	{
 		Node temp = this.head;
@@ -60,7 +60,7 @@ public class list
 		
 		this.last.next = b.head;
 
-		System.out.print("Á¤·Ä Àü ¸®½ºÆ® Ãâ·Â : ");
+		System.out.print("ì •ë ¬ ì „ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ : ");
 		this.print();
 		
 		temp = this.head;
@@ -79,11 +79,11 @@ public class list
 			this.add(data);
 		}
 		
-		System.out.print("\nÁ¤·Ä ÈÄ ¸®½ºÆ® Ãâ·Â : ");
+		System.out.print("\nì •ë ¬ í›„ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ : ");
 		this.print();
 	}
 	
-	// ¸®½ºÆ® ³» µ¿ÀÏÇÑ ¼ıÀÚµéÀÇ ÇÕ
+	// ë¦¬ìŠ¤íŠ¸ ë‚´ ë™ì¼í•œ ìˆ«ìë“¤ì˜ í•©
 	public void findNum(list b)
 	{
 		int sum = 0;
@@ -106,7 +106,7 @@ public class list
 			temp = temp.next;
 		}
 		
-		System.out.println("¸®½ºÆ® ³» µ¿ÀÏÇÑ ¼ıÀÚµéÀÇ ÇÕ : " + sum + "\n");	
+		System.out.println("ë¦¬ìŠ¤íŠ¸ ë‚´ ë™ì¼í•œ ìˆ«ìë“¤ì˜ í•© : " + sum + "\n");	
 	}
 	
 	public static void main(String[] args) 

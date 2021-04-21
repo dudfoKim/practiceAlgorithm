@@ -77,16 +77,16 @@ public class sort
 		int[] insertion = {5, 1, 3, 7, 2, 9};
 		int[] merge = {6, 5, 3, 1, 8, 7, 2, 4};
 		
-		System.out.println("»ğÀÔÁ¤·Ä Àü : ");
+		System.out.println("ì‚½ì…ì •ë ¬ ì „ : ");
 		print(insertion);
 		insertion(insertion);
-		System.out.println("\n»ğÀÔÁ¤·Ä ÈÄ : ");
+		System.out.println("\nì‚½ì…ì •ë ¬ í›„ : ");
 		print(insertion);
 		
-		System.out.println("\n\nº´ÇÕÁ¤·Ä Àü : ");
+		System.out.println("\n\në³‘í•©ì •ë ¬ ì „ : ");
 		print(merge);
 		mergeSort(merge, 0, merge.length-1);
-		System.out.println("\nº´ÇÕÁ¤·Ä ÈÄ : ");
+		System.out.println("\në³‘í•©ì •ë ¬ í›„ : ");
 		print(merge);	
 	}
 }

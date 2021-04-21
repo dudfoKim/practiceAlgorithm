@@ -6,28 +6,28 @@ public class stack
 {
 	public static void main(String[] args) 
 	{
-		// ¹®Á¦1-2, 1-3
+		// ë¬¸ì œ1-2, 1-3
 		Stack<Integer> numStack = new Stack<Integer>();
 		Stack<Character> charStack = new Stack<Character>();
 
-		// ¹®Á¦ 1-1, 1-3
+		// ë¬¸ì œ 1-1, 1-3
 		Stack q1 = new Stack();
 		q1.add(1);
 		q1.add(2);
 		q1.add(3);
 		
-		System.out.print("½ºÅÃ È®ÀÎ : ");
+		System.out.print("ìŠ¤íƒ í™•ì¸ : ");
 		System.out.println(q1.toString());
 	
-		// ¹®Á¦ 1-4, 1-5
+		// ë¬¸ì œ 1-4, 1-5
 		q1.remove(2);
-		System.out.print("½ºÅÃ È®ÀÎ : ");
+		System.out.print("ìŠ¤íƒ í™•ì¸ : ");
 		System.out.println(q1.toString());
 		q1.removeAllElements();
-		System.out.print("½ºÅÃ È®ÀÎ : ");
+		System.out.print("ìŠ¤íƒ í™•ì¸ : ");
 		System.out.println(q1.toString());
 		
-		// ¹®Á¦ 1-6, 1-7, 1-8, 1-9
+		// ë¬¸ì œ 1-6, 1-7, 1-8, 1-9
 		q1.add(4);
 		q1.add(5);
 		q1.add(6);
@@ -37,11 +37,11 @@ public class stack
 		System.out.println(q1.isEmpty());
 		System.out.println(q1.contains(1));
 		
-		System.out.print("½ºÅÃ È®ÀÎ : ");
+		System.out.print("ìŠ¤íƒ í™•ì¸ : ");
 		System.out.println(q1.toString());
 		
-		// ¹®Á¦ 3
-		System.out.println("\n\n========¹®Á¦ 3========");
+		// ë¬¸ì œ 3
+		System.out.println("\n\n========ë¬¸ì œ 3========");
 		Stack<Integer> q3 = new Stack();
 		System.out.println(q3.isEmpty());
 		
@@ -50,15 +50,15 @@ public class stack
 		q3.add(30);
 		q3.add(40);
 		q3.add(50);
-		System.out.print("½ºÅÃ È®ÀÎ : ");
+		System.out.print("ìŠ¤íƒ í™•ì¸ : ");
 		System.out.println(q3.toString());
 		
 		q3.addElement(7);
-		System.out.print("½ºÅÃ È®ÀÎ : ");
+		System.out.print("ìŠ¤íƒ í™•ì¸ : ");
 		System.out.println(q3.toString());
 		
 		q3.pop();
-		System.out.println("ÇöÀç stackÀÇ top °ª : " + q3.peek());
+		System.out.println("í˜„ì¬ stackì˜ top ê°’ : " + q3.peek());
 		System.out.println(q3.contains(50)==true?1:-1);
 		
 		while(!q3.isEmpty())

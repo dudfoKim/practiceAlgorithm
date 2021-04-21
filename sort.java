@@ -1,115 +1,92 @@
-package DS;
+package sort_20210421;
 
-public class sort 
+public class sort
 {
-	public static void print(int[] a)
+	public static void print(int[] array)
 	{
-		for(int temp : a)
+		for(int data : array)
 		{
-			System.out.print(temp + " ");
+		System.out.print(data + " ");
 		}
-		System.out.println();
+	}
+
+	public static void insertion(int[] array)
+	{
+		for(int i=1; i<array.length; i++)
+		{
+			int key = array[i];
+			int j = i-1;
+			
+			while(j>=0 && key<array[j])
+			{
+				array[j+1] = array[j];
+				j--;
+			}
+			
+		array[j+1] = key;
+		}
+	}
+
+	public static void mergeSort(int arr[], int l, int r)
+	{
+		if(l<r)
+		{
+			int mid = (l+r)/2;
+			mergeSort(arr, l, mid);
+			mergeSort(arr, mid+1, r);
+			merge(arr, l, mid, r);
+		}
 	}
 	
-	public static int[] bubble(int[] a)
-    {
-        int temp = 0;
-        
-        for(int i=0; i<a.length-1; i++)
-        {
-            for(int j=0; j<a.length-1; j++)
-            {
-                // ascending
-                if(a[j]>a[j+1])
-                {
-                    temp = a[j+1];
-                    a[j+1] = a[j];
-                    a[j] = temp;
-                }
-                /* descending
-                if(a[j]<a[j+1])
-                {
-                    temp = a[j+1];
-                    a[j+1] = a[j];
-                    a[j] = temp;
-                }
-                */
-            }
-        }
-        
-        print(a);
-		return a;
-    }
-    
-    public static int[] selection(int[] a)
-    {
-        int min_index = 0;
-        int temp = 0;
-        
-        for(int i=0; i<a.length-1; i++)
-        {
-            min_index = i;
-            
-            for(int j=i+1; j<a.length; j++)
-            {
-                // ascending
-                if(a[min_index]>a[j])
-                {
-                    min_index = j;
-                }
-                /* descending
-                if(a[min_index]<a[j])
-                {
-                    min_index = j;
-                }
-                */
-            }
-            
-            temp = a[min_index];
-            a[min_index] = a[i];
-            a[i] = temp;
-        }
-        
-        print(a);
-		return a;
-    }
-    
-    public static int[] insertion(int[] a)
-    {
-        int temp = 0;
-        int j = 0;
-        
-        for(int i=1; i<a.length; i++)
-        {
-            temp = a[i];
-            
-            // ascending
-            for(j=i-1; j>=0 && temp<a[j]; j--)
-            {
-                a[j+1] = a[j];
-            }
-            
-            /* descending
-            for(j=i-1; j>=0 && temp>a[j]; j--)
-            {
-                a[j+1] = a[j];
-            }
-            */
-            
-            a[j+1] = temp;
-        }
-        
-        print(a);
-        return a;
-    }
-	public static void main(String[] args) 
+	public static void merge(int arr[], int l, int mid, int r)
 	{
-		int[] input1 = {1,5,7,2,4,3,6};
-		int[] input2 = {1,5,7,2,4,3,6};
-		int[] input3 = {1,5,7,2,4,3,6};
+		int i = l;
+		int j = mid+1;
+		int k = l;
+		int temp[] = new int[arr.length];
 		
-		bubble(input1);
-		selection(input1);
-		insertion(input1);
+		while(i<=mid && j<=r)
+		{
+			if(arr[i] < arr[j])
+			{
+				temp[k++] = arr[i++];
+			}
+			else
+			{
+				temp[k++] = arr[j++];
+			}
+		}
+		
+		while(i<=mid)
+		{
+			temp[k++] = arr[i++];
+		}
+		while(j<=r)
+		{
+			temp[k++] = arr[j++];
+		}
+
+		for(int index=l; index<k; index++)
+		{
+			arr[index] = temp[index];
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		int[] insertion = {5, 1, 3, 7, 2, 9};
+		int[] merge = {6, 5, 3, 1, 8, 7, 2, 4};
+		
+		System.out.println("삽입정렬 전 : ");
+		print(insertion);
+		insertion(insertion);
+		System.out.println("\n삽입정렬 후 : ");
+		print(insertion);
+		
+		System.out.println("\n\n병합정렬 전 : ");
+		print(merge);
+		mergeSort(merge, 0, merge.length-1);
+		System.out.println("\n병합정렬 후 : ");
+		print(merge);	
 	}
 }

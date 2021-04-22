@@ -1,4 +1,4 @@
-package DS;
+package graph_20210422;
 
 public class binaryTree 
 {
@@ -24,170 +24,89 @@ public class binaryTree
 		this.right = input.right;
 	}
 	
+	// 전위 탐색(preOrder)
+	private void preOrder()
+	{
+		System.out.print(this.value + " ");
+		
+		if(this.left!=null)
+		{
+			this.left.preOrder();
+		}
+
+		if(this.right!=null)
+		{
+			this.right.preOrder();
+		}
+	}
+	
 	// 중위 탐색(Inorder)
 	private void inOrder()
 	{
 		if(this.left!=null)
 		{
-			System.out.print("(");
 			this.left.inOrder();
-			System.out.print(") ,");
 		}
-		if(this.value!=null)
-		{
-			System.out.print(this.value);
-		}
+		
+		System.out.print(this.value + " ");
+		
 		if(this.right!=null)
 		{
-			System.out.print(", (");
 			this.right.inOrder();
-			System.out.print(")");
 		}
 	}
 	
-	// String형 값 노드 갯수 찾기
-	private int count(String input)
+	// 후위 탐색(postOrder)
+	private void postOrder()
 	{
-		int result = 0;
-		
-		if(this.value.equals(input))
-		{
-			result++;
-		}
 		if(this.left!=null)
 		{
-			result += this.left.count(input);
+			this.left.postOrder();
 		}
+
 		if(this.right!=null)
 		{
-			result += this.right.count(input);
+			this.right.postOrder();
 		}
 		
-		return result;
-	}
-	
-	// 트리 꽉 차있는 지 검사
-	private int isFull()
-	{
-		int left = 0;
-		int right = 0;
+		System.out.print(this.value + " ");
 		
-		if(this==null)
-		{
-			return 0;
-		}
-		if(this.isLeaf())
-		{
-			left++;
-			right++;
-		}
-		if(this.left!=null)
-		{
-			left += this.left.isFull();
-		}
-		if(this.right!=null)
-		{
-			right += this.right.isFull();
-		}
-		
-		return Math.max(left, right);
-	}
-	
-	// leaf노드 개수
-	private int numLeaves()
-	{
-		int result = 0;
-		
-		if(this.isLeaf())
-		{
-			result += 1;
-		}
-		if(this.left!=null)
-		{
-			result += this.left.numLeaves();
-		}
-		if(this.right!=null)
-		{
-			result += this.right.numLeaves();
-		}		
-		
-		return result;
-	}
-	
-	// 트리의 높이
-	private int height()
-	{
-		int left = 0;
-		int right = 0;
-		
-		if(this.isLeaf())
-		{
-			left = 1;
-			right = 1;
-		}
-		if(this.left!=null)
-		{
-			left += 1 + this.left.height();
-		}
-		if(this.right!=null)
-		{
-			right += 1 + this.right.height();
-		}
-		
-		return Math.max(left, right);
-	}
-	
-	// 트리의 노드 개수
-	private int size()
-	{
-		int result = 0;
-		
-		if(this==null)
-		{
-			result = 0;
-		}
-		if(this.isLeaf())
-		{
-			result = 1;
-		}
-		if(this.left!=null)
-		{
-			result += this.left.size();
-		}
-		if(this.right!=null)
-		{
-			result += this.right.size();
-		}
-		
-		return result;
-	}
-	
-	// leaf노드 여부
-	private boolean isLeaf()
-	{
-		return (this.left==null && this.right==null)?true:false;
 	}
 	
 	public static void main(String[] args) 
 	{
-		binaryTree treeA2 = new binaryTree("A");
-		binaryTree treeE = new binaryTree("E");
-		binaryTree treeD = new binaryTree("D");
-		binaryTree treeC = new binaryTree("C", treeD, treeE);
-		binaryTree treeB = new binaryTree("B", treeA2, null);
-		binaryTree treeA = new binaryTree("A", treeB, treeC);
+		// leaf node
+		binaryTree tree8 = new binaryTree("8");
+		binaryTree tree9 = new binaryTree("9");
+		binaryTree tree10 = new binaryTree("10");
+		binaryTree tree11 = new binaryTree("11");
 		
+		binaryTree tree12 = new binaryTree("12");
+		binaryTree tree13 = new binaryTree("13");
+		binaryTree tree14 = new binaryTree("14");
+		binaryTree tree15 = new binaryTree("15");
 		
-		System.out.print("Print node value by InOrder\n(");
-		treeA.inOrder();
-		System.out.print(")\n\n");
+		// leaf node를 포함한 노드 연결
+		binaryTree tree4 = new binaryTree("4", tree8, tree9);
+		binaryTree tree5 = new binaryTree("5", tree10, tree11);
+		binaryTree tree6 = new binaryTree("6", tree12, tree13);
+		binaryTree tree7 = new binaryTree("7", tree14, tree15);
 		
-		System.out.println("count(A) : " + treeA.count("A"));
-		System.out.print("isFull : ");
-		System.out.println(treeA.isFull()==0?"True":"False");
-		System.out.println("size : " + treeA.size());
-		System.out.println("height : " + treeA.height());
-		System.out.println("numLeaves : " + treeA.numLeaves());
-		System.out.println("isFull : " + treeA.isFull());
+		binaryTree tree2 = new binaryTree("2", tree4, tree5);
+		binaryTree tree3 = new binaryTree("3", tree6, tree7);
+		binaryTree tree = new binaryTree("1", tree2, tree3);
+		
+		// pre-order
+		System.out.print("전위 순회 : ");
+		tree.preOrder();
+
+		// in-order
+		System.out.print("\n중위 순회 : ");
+		tree.inOrder();
+		
+		// post-order
+		System.out.print("\n후위 순회 : ");
+		tree.postOrder();
+
 	}
 }

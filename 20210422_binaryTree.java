@@ -24,7 +24,7 @@ public class binaryTree
 		this.right = input.right;
 	}
 	
-	// ÀüÀ§ Å½»ö(preOrder)
+	// ì „ìœ„ íƒìƒ‰(preOrder)
 	private void preOrder()
 	{
 		System.out.print(this.value + " ");
@@ -40,7 +40,7 @@ public class binaryTree
 		}
 	}
 	
-	// ÁßÀ§ Å½»ö(Inorder)
+	// ì¤‘ìœ„ íƒìƒ‰(Inorder)
 	private void inOrder()
 	{
 		if(this.left!=null)
@@ -56,7 +56,7 @@ public class binaryTree
 		}
 	}
 	
-	// ÈÄÀ§ Å½»ö(postOrder)
+	// í›„ìœ„ íƒìƒ‰(postOrder)
 	private void postOrder()
 	{
 		if(this.left!=null)
@@ -86,7 +86,7 @@ public class binaryTree
 		binaryTree tree14 = new binaryTree("14");
 		binaryTree tree15 = new binaryTree("15");
 		
-		// leaf node¸¦ Æ÷ÇÔÇÑ ³ëµå ¿¬°á
+		// leaf nodeë¥¼ í¬í•¨í•œ ë…¸ë“œ ì—°ê²°
 		binaryTree tree4 = new binaryTree("4", tree8, tree9);
 		binaryTree tree5 = new binaryTree("5", tree10, tree11);
 		binaryTree tree6 = new binaryTree("6", tree12, tree13);
@@ -97,15 +97,15 @@ public class binaryTree
 		binaryTree tree = new binaryTree("1", tree2, tree3);
 		
 		// pre-order
-		System.out.print("ÀüÀ§ ¼øÈ¸ : ");
+		System.out.print("ì „ìœ„ ìˆœíšŒ : ");
 		tree.preOrder();
 
 		// in-order
-		System.out.print("\nÁßÀ§ ¼øÈ¸ : ");
+		System.out.print("\nì¤‘ìœ„ ìˆœíšŒ : ");
 		tree.inOrder();
 		
 		// post-order
-		System.out.print("\nÈÄÀ§ ¼øÈ¸ : ");
+		System.out.print("\ní›„ìœ„ ìˆœíšŒ : ");
 		tree.postOrder();
 
 	}
